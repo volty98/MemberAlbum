@@ -1,0 +1,82 @@
+/* summary のデフォルト三角を消す */
+.memberalbum-toggle {
+    list-style: none;
+}
+.memberalbum-toggle::-webkit-details-marker {
+    display: none;
+}
+
+/* ＋マークの角丸ボタン */
+.memberalbum-toggle::before {
+    content: "+";
+    font-size: 1.6rem;
+    display: inline-block;
+    width: 100%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+/* 開いたら － に変わる */
+.memberalbum[open] .memberalbum-toggle::before {
+    content: "−";
+    background-color: #fafafa;
+}
+
+/* ぺろん部分の囲いデザイン */
+.memberalbum-panel {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 10px;
+    background-color: #fafafa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.memberalbum-panel label {
+    font-size: 1.6rem;
+    font-family: apple color emoji,segoe ui emoji,noto color emoji,android emoji,emojisymbols,emojione mozilla,twemoji mozilla,segoe ui symbol;
+}
+
+/* 投稿ボタンを右寄せ */
+.memberalbum-submit {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+/* ギャラリー全体をグリッド化 */
+.memberalbum-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* 各タイル（画像＋投稿者） */
+.memberalbum-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* 画像を Googleフォト風にトリミング */
+.memberalbum-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;      /* 正方形にする */
+    object-fit: cover;        /* 中央を基準にトリミング */
+    border-radius: 8px;       /* 角丸 */
+    display: block;
+}
+
+/* 投稿者名のスタイル */
+.memberalbum-item p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #555;
+}
